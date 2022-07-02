@@ -1,0 +1,6 @@
+Data can be given as a single file, directory, or as multiple files and directories. 
+In all these cases, the last argument must be the file where to write the output.
+
+python -m robot.testdoc my_test.robot testdoc.html
+python -m robot.testdoc --name "Smoke tests" --include smoke path/to/tests smoke.html
+

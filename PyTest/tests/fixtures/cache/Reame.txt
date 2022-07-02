@@ -1,0 +1,30 @@
+Usually we testers like to think about each test as being as independent as possible from other tests. We want to make sure order dependencies don’t creep in. We want to be able to run or rerun any test in any order and get the same result. We also want test sessions to be repeatable and to not change behavior based on previous test sessions.
+
+However, sometimes passing information from one test session to the next can be quite useful. When we do want to pass information to future test sessions, we can do it with the cache builtin fixture.
+
+The cache fixture is all about storing information about one test session and retrieving it in the next. A great example of using the powers of cache for good is the builtin functionality of --last-failed and --failed-first. Let’s take a look at how the data for these flags is stored using cache.
+
+--lf, --last-failed   	rerun only the tests that failed at the last run (or all
+                    	if none failed)
+
+--ff, --failed-first  	run all tests, but run the last failures first.
+                    	This may re-order tests and thus lead to repeated
+                    	fixture setup/teardown.
+
+--nf, --new-first     	run tests from new files first, then the rest of the
+                    	tests sorted by file mtime
+
+--cache-show=[CACHESHOW]
+                    	show cache contents, don't perform collection or tests.
+                    	Optional argument: glob (default: '*')
+
+--cache-clear         	remove all cache contents at start of test run.
+
+The cache can be used for more than just --lf and --ff. Let’s make a fixture that records how long tests take, saves the times, and on the next run, reports an error on tests that take longer than, say, twice as long as last time.
+
+The interface for the cache fixture is simply
+
+cache.get(key, default)
+cache.set(key, value)
+
+By convention, key names start with the name of your application or plugin, followed by a /, and continuing to separate sections of the key name with /’s. The value you store can be anything that is convertible to json, since that’s how it’s represented in the .cache directory.

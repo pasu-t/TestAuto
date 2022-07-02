@@ -1,0 +1,9 @@
+RobotFramework doesn't have option for repeating the testcases but we have the alternative way to acheive this.
+
+Robot-framework will look for matching tests in all of the provided paths, if you pass the same path more than once, robot will run the same test again.
+
+For example, if you are running tests on the current folder, you can pass "." as many times as you want the test to run. Ex:
+
+robot -t "*My test*" . . .
+
+This command will run all tests that match the expression 3 times, and the report will contain all 3 executions and results.

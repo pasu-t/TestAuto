@@ -1,0 +1,8 @@
+pytest==6.2.3
+pytest-html==3.1.1
+pytest-xdist==2.2.1
+requests==2.25.1
+selenium==3.141.0
+six==1.16.0
+webdriver-manager==3.4.2
+flaky

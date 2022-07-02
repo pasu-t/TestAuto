@@ -1,0 +1,8 @@
+pytest provides a cool mechanism to let you put markers on test functions. A test can have more than one marker, and a marker can be on multiple tests.
+
+Markers make sense after you see them in action. Let’s say we want to run a subset of our tests as a quick “smoke test” to get a sense for whether or not there is some major break in the system. Smoke tests are by convention not all-inclusive, thorough test suites, but a select subset that can be run quickly and give a developer a decent idea of the health of all parts of the system.
+
+pytest -m 'smoke'
+pytest -m 'get'
+pytest -m 'smoke and get'
+pytest -m 'smoke and not get'

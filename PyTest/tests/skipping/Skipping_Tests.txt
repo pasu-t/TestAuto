@@ -1,0 +1,8 @@
+Skipping Tests:
+While the markers discussed in Marking Test Function were names of your own choosing, pytest includes a few helpful builtin markers: skip, skipif, and xfail.
+
+The skip and skipif markers enable you to skip tests you don’t want to run.
+
+Marking Tests as Expecting to Fail:
+With the skip and skipif markers, a test isn’t even attempted if skipped. With the xfail marker, we are telling pytest to run a test function, but that we expect it to fail.
+

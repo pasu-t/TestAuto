@@ -1,0 +1,11 @@
+Exercises
+Create a new virtual environment using python -m virtualenv or python -m venv.
+
+Practice activating and deactivating your virtual environment a few times.
+
+$ source venv/bin/activate
+$ deactivate
+On Windows:
+
+C:\Users\okken\sandbox>venv\scripts\activate.bat
+C:\Users\okken\sandbox>deactivate

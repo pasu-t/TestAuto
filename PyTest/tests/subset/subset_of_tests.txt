@@ -1,0 +1,12 @@
+
+You can run a subset of tests in several other ways. You can run all of the tests, or you can select a single directory, file, class within a file, or an individual test in a file or class. You haven’t seen test classes used yet, so you’ll look at one in this section. You can also use an expression to match test names.
+
+An important trick to learn is that using -v gives you the syntax for how to run a specific directory, class, and test.
+
+A SINGLE TEST FILE/MODULE 				pytest tests/func/test_add.py
+A SINGLE TEST FUNCTION					pytest -v tests/func/test_add.py::test_add_returns_valid_id
+A SINGLE TEST CLASS 					pytest -v tests/exceptions/test_api_exceptions.py::TestUpdate
+A SINGLE TEST METHOD OF A TEST CLASS 	pytest -v tests/exceptions/test_api_exceptions.py::TestUpdate::test_bad_id
+A SET OF TESTS BASED ON TEST NAME 		pytest -v -k _raises
+										pytest -v -k "_raises and not delete"
+										

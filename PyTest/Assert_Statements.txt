@@ -1,0 +1,20 @@
+Using assert Statements
+When you write test functions, the normal Python assert statement is your primary tool to communicate test failure. The simplicity of this within pytest is brilliant. It’s what drives a lot of developers to use pytest over other frameworks.
+
+If you’ve used any other testing framework, you’ve probably seen various assert helper functions. For example, the following is a list of a few of the assert forms and assert helper functions:
+
+pytest 
+=======
+assert something
+assert a == b
+assert a <= b
+
+unittest
+========
+assertTrue(something)
+assertEqual(a, b)
+assertLessEqual(a, b)
+
+With pytest, you can use assert <expression> with any expression. If the expression would evaluate to False if converted to a bool, the test would fail.
+
+pytest includes a feature called assert rewriting that intercepts assert calls and replaces them with something that can tell you more about why your assertions failed. 

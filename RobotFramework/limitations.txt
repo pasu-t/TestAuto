@@ -1,0 +1,4 @@
+-> Once robot starts running, there's no way to skip a test based on some condition. I think this is one of the weaknesses of robot, but the designers really don't seem to like the notion of skipped tests. 
+
+-> There's no built-in way for one test to depend on another.
+

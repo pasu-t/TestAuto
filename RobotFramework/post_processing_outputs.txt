@@ -1,0 +1,40 @@
+Creating different reports and logs:
+===================================
+rebot output.xml
+rebot path/to/output_file.xml
+rebot --include smoke --name Smoke_Tests c:\results\output.xml
+
+Combining outputs:
+=================
+rebot output1.xml output2.xml
+rebot outputs/*.xml
+rebot --include smoke --name Smoke_Tests c:\results\*.xml
+
+Merging outputs:
+================
+If same tests are re-executed or a single test suite executed in pieces, combining results like discussed above creates an unnecessary top-level test suite.
+In these cases it is typically better to merge results instead. 
+How merging works in practice is explained in the following sections discussing its two main use cases.
+
+Merging re-executed tests
+--------------------------
+robot --output original.xml tests                          # first execute all tests
+robot --rerunfailed original.xml --output rerun.xml tests  # then re-execute failing
+rebot --merge original.xml rerun.xml                       # finally merge results
+
+Merging suites executed in pieces
+---------------------------------
+Another important use case for the --merge option is merging results got when running a test suite in pieces using, for example, --include and --exclude options:
+
+robot --include smoke --output smoke.xml tests   # first run some tests
+robot --exclude smoke --output others.xml tests  # then run others
+rebot --merge smoke.xml others.xml               # finally merge results
+
+
+
+
+
+
+
+
+
